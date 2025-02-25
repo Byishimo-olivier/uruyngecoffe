@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - Uruyange Coffee</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        body, html {
+        body,
+        html {
             height: 100%;
         }
+
         .content-wrapper {
-            min-height: calc(100% - 100px); /* Reserve space for the footer */
+            min-height: calc(100% - 100px);
+            /* Reserve space for the footer */
             display: flex;
             flex-direction: column;
         }
+
         .cart-item {
             border-bottom: 1px solid #ddd;
             padding: 12px 0;
         }
+
         .cart-item:last-child {
             border-bottom: none;
         }
+
+        .nav-links ul li a.active {
+            color: #cfb704;
+        }
+
         .remove-item {
             color: #e74c3c;
             cursor: pointer;
             font-weight: bold;
         }
+
         footer {
             margin-top: auto;
         }
     </style>
 </head>
+
 <body class="bg-white text-gray-800">
     <!-- Header -->
     <header class="bg-white shadow fixed w-full z-10">
@@ -42,7 +55,8 @@
                 <a href="plan.html" class="text-gray-600 hover:text-gray-900">Plans</a>
                 <a href="#blog" class="text-gray-600 hover:text-gray-900">Blog</a>
                 <a href="#shop" class="text-gray-600 hover:text-gray-900">Shop</a>
-                <a href="#" class="bg-yellow-500 text-white py-2 px-4 rounded shadow hover:bg-yellow-600">Get Started</a>
+                <a href="#" class="bg-yellow-500 text-white py-2 px-4 rounded shadow hover:bg-yellow-600">Get
+                    Started</a>
             </nav>
         </div>
     </header>
@@ -78,94 +92,110 @@
                         </div>
 
                         <div class="mt-4">
-                            <button id="proceed-checkout" class="bg-yellow-500 text-white py-2 px-6 rounded shadow hover:bg-yellow-600 transition">
+                            <button id="proceed-checkout"
+                                class="bg-yellow-500 text-white py-2 px-6 rounded shadow hover:bg-yellow-600 transition">
                                 Proceed to Payment
                             </button>
                         </div>
                     </div>
                 </div>
 
-               <!-- Payment Form (Hidden Initially) -->
-  <div id="payment-form" class="mt-12 hidden bg-white p-6 rounded-lg shadow-lg">
-    <h3 class="text-2xl font-semibold text-center mb-6">Payment Details</h3>
+                <!-- Payment Form (Hidden Initially) -->
+                <div id="payment-form" class="mt-12 hidden bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold text-center mb-6">Payment Details</h3>
 
-    <form id="payment-details-form" class="flex flex-wrap">
-        <!-- Left Column -->
-        <div class="w-full md:w-1/2 pr-4 mb-4">
-            <div class="mb-4">
-                <label for="email" class="block font-semibold">Email Address</label>
-                <input type="email" id="email" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter your email address" required>
-            </div>
+                    <form id="payment-details-form" class="flex flex-wrap">
+                        <!-- Left Column -->
+                        <div class="w-full md:w-1/2 pr-4 mb-4">
+                            <div class="mb-4">
+                                <label for="email" class="block font-semibold">Email Address</label>
+                                <input type="email" id="email" class="w-full p-2 border border-gray-300 rounded"
+                                    placeholder="Enter your email address" required>
+                            </div>
 
-            <div class="mb-4">
-                <label for="card-number" class="block font-semibold">Card Number</label>
-                <input type="text" id="card-number" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter your card number" required>
-            </div>
+                            <div class="mb-4">
+                                <label for="card-number" class="block font-semibold">Card Number</label>
+                                <input type="text" id="card-number" class="w-full p-2 border border-gray-300 rounded"
+                                    placeholder="Enter your card number" required>
+                            </div>
 
-            <div class="mb-4">
-                <label for="expiry-date" class="block font-semibold">Expiry Date</label>
-                <input type="text" id="expiry-date" class="w-full p-2 border border-gray-300 rounded" placeholder="MM/YY" required>
-            </div>
+                            <div class="mb-4">
+                                <label for="expiry-date" class="block font-semibold">Expiry Date</label>
+                                <input type="text" id="expiry-date" class="w-full p-2 border border-gray-300 rounded"
+                                    placeholder="MM/YY" required>
+                            </div>
 
-            <div class="mb-4">
-                <label for="cvv" class="block font-semibold">CVV</label>
-                <input type="text" id="cvv" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter CVV" required>
-            </div>
+                            <div class="mb-4">
+                                <label for="cvv" class="block font-semibold">CVV</label>
+                                <input type="text" id="cvv" class="w-full p-2 border border-gray-300 rounded"
+                                    placeholder="Enter CVV" required>
+                            </div>
 
-            <div class="mb-4">
-                <label for="delivery" class="block font-semibold">Delivery</label>
-                <input type="text" id="delivery" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter delivery details" required>
-            </div>
+                            <div class="mb-4">
+                                <label for="delivery" class="block font-semibold">Delivery</label>
+                                <input type="text" id="delivery" class="w-full p-2 border border-gray-300 rounded"
+                                    placeholder="Enter delivery details" required>
+                            </div>
 
-            <div class="mb-4">
-                <label for="first-name" class="block font-semibold">First Name (Optional)</label>
-                <input type="text" id="first-name" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter your first name">
-            </div>
-        </div>
+                            <div class="mb-4">
+                                <label for="first-name" class="block font-semibold">First Name (Optional)</label>
+                                <input type="text" id="first-name" class="w-full p-2 border border-gray-300 rounded"
+                                    placeholder="Enter your first name">
+                            </div>
+                        </div>
 
-        <!-- Right Column -->
-        <div class="w-full md:w-1/2 pl-4 mb-4">
-            <div class="mb-4">
-                <label for="last-name" class="block font-semibold">Last Name</label>
-                <input type="text" id="last-name" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter your last name" required>
-            </div>
+                        <!-- Right Column -->
+                        <div class="w-full md:w-1/2 pl-4 mb-4">
+                            <div class="mb-4">
+                                <label for="last-name" class="block font-semibold">Last Name</label>
+                                <input type="text" id="last-name" class="w-full p-2 border border-gray-300 rounded"
+                                    placeholder="Enter your last name" required>
+                            </div>
 
-            <div class="mb-4">
-                <label for="address" class="block font-semibold">Address</label>
-                <input type="text" id="address" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter your address" required>
-            </div>
+                            <div class="mb-4">
+                                <label for="address" class="block font-semibold">Address</label>
+                                <input type="text" id="address" class="w-full p-2 border border-gray-300 rounded"
+                                    placeholder="Enter your address" required>
+                            </div>
 
-            <div class="mb-4">
-                <label for="apartment" class="block font-semibold">Apartment, Suite, etc. (Optional)</label>
-                <input type="text" id="apartment" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter apartment or suite">
-            </div>
+                            <div class="mb-4">
+                                <label for="apartment" class="block font-semibold">Apartment, Suite, etc.
+                                    (Optional)</label>
+                                <input type="text" id="apartment" class="w-full p-2 border border-gray-300 rounded"
+                                    placeholder="Enter apartment or suite">
+                            </div>
 
-            <div class="mb-4">
-                <label for="city" class="block font-semibold">City</label>
-                <input type="text" id="city" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter your city" required>
-            </div>
+                            <div class="mb-4">
+                                <label for="city" class="block font-semibold">City</label>
+                                <input type="text" id="city" class="w-full p-2 border border-gray-300 rounded"
+                                    placeholder="Enter your city" required>
+                            </div>
 
-            <div class="mb-4">
-                <label for="zip-code" class="block font-semibold">ZIP Code</label>
-                <input type="text" id="zip-code" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter your ZIP code" required>
-            </div>
+                            <div class="mb-4">
+                                <label for="zip-code" class="block font-semibold">ZIP Code</label>
+                                <input type="text" id="zip-code" class="w-full p-2 border border-gray-300 rounded"
+                                    placeholder="Enter your ZIP code" required>
+                            </div>
 
-            <div class="mb-4">
-                <label for="phone" class="block font-semibold">Phone (Optional)</label>
-                <input type="tel" id="phone" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter your phone number">
-            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block font-semibold">Phone (Optional)</label>
+                                <input type="tel" id="phone" class="w-full p-2 border border-gray-300 rounded"
+                                    placeholder="Enter your phone number">
+                            </div>
 
-            <div class="mb-4">
-                <label for="news-offers" class="block font-semibold">Text me with news and offers</label>
-                <input type="checkbox" id="news-offers" class="p-2 border border-gray-300 rounded">
-            </div>
+                            <div class="mb-4">
+                                <label for="news-offers" class="block font-semibold">Text me with news and
+                                    offers</label>
+                                <input type="checkbox" id="news-offers" class="p-2 border border-gray-300 rounded">
+                            </div>
 
-            <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded shadow hover:bg-green-600 transition">
-                Pay Now
-            </button>
-        </div>
-    </form>
-</div>
+                            <button type="submit"
+                                class="bg-green-500 text-white py-2 px-6 rounded shadow hover:bg-green-600 transition">
+                                Pay Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
 
             </div>
         </section>
@@ -206,7 +236,7 @@
         });
 
         // Handle payment form submission
-        document.getElementById('payment-details-form').addEventListener('submit', function(event) {
+        document.getElementById('payment-details-form').addEventListener('submit', function (event) {
             event.preventDefault();
 
             // Simulate payment processing
@@ -224,4 +254,5 @@
         });
     </script>
 </body>
+
 </html>

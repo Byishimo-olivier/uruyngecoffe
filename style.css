@@ -265,12 +265,13 @@ section {
     max-width: 300px;
     text-align: center;
     padding: 50px 20px;
+    height: 20%;
 }
 
 .step img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;
     margin-bottom: 15px;
     object-fit: cover;
 }

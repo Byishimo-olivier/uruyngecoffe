@@ -141,6 +141,8 @@ document.addEventListener('DOMContentLoaded', function () {
 //     updateCartCount(0);
 // });
 
+
+
 // Function to update cart count
 function updateCartCount(count) {
     const cartCount = document.querySelector('.cart-count');
