@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Uruyange Coffee</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+       
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 12px 0;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .remove-item {
+            color: #e74c3c;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+       
+        .hero {
+            background-image: url('images/1.9.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #020202 27%, #3E3E3E 57%, #686868 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 1);
+    padding: 8px 20px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a i {
+    font-size: 18px;
+}
+
+.nav-links ul li a:hover {
+    color: #cfb704;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cart-icon {
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+    color: #cfb704;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #cfb704;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-menu {
+    position: relative;
+}
+
+.dashboard-toggle {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dashboard-toggle:hover {
+    color: #cfb704;
+}
+
+.dashboard-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dashboard-menu:hover .dashboard-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dashboard-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color: #333;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-dropdown a:hover {
+    background-color: #f5f5f5;
+    color: #cfb704;
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #cfb704;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #a38402;
+    transform: translateY(-2px);
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-links ul {
+        gap: 20px;
+    }
+    
+    .nav-buttons {
+        gap: 15px;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 20px;
+        transition: left 0.3s ease;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .nav-buttons {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .dashboard-dropdown {
+        position: static;
+        width: 100%;
+        margin-top: 10px;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .dashboard-dropdown a {
+        color: #fff;
+    }
+    
+    .dashboard-dropdown a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #cfb704;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .men_text h1 {
+        font-size: 40px;
+    }
+    
+    .men_text h2 {
+        font-size: 24px;
+    }
+    
+    .navbar {
+        padding: 10px 15px;
+    }
+    
+    .logo img {
+        width: 50px;
+    }
+
+    .logo img {
+        width: 100px; 
+        height: auto;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+}
+
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow fixed w-full z-50">
+        <nav class="navbar">
+          <div class="logo">
+            <img src="images/logo-png.png" alt="Coffee Shop">
+          </div>
+          <div class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="nav-links" id="navLinks">
+            <ul>
+              <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+              <li><a href="/ourcoffee.html"><i class="fas fa-coffee"></i> Our Coffee</a></li>
+              <li><a href="/subscription.html"><i class="fas fa-box"></i> Subscription</a></li>
+              <li><a href="/about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+              <li><a href="Contact.html"><i class="fas fa-address-book"></i> Contact</a></li>
+              <div class="nav-buttons">
+                <button type="button" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Get Started
+                </button>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+    <!-- Cart Page -->
+    <section class="py-16 flex-grow">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-8">Your Cart</h2>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <!-- Cart Items -->
+                <div id="cart-items">
+                    <!-- Cart Item with dynamic price -->
+                    <div class="cart-item flex justify-between items-center" data-price="0.00">
+                        <div>
+                            <span class="font-semibold">Selected Plan:</span> <span id="selected-plan">Not Selected</span><br>
+                            <span class="font-semibold">Price:</span> $<span id="selected-price">0.00</span><br>
+                        </div>
+                        <div>
+                            <span class="remove-item" onclick="removeItem(this)">Remove</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="mt-6">
+                    <div class="flex justify-between text-xl font-semibold">
+                        <span>Total:</span>
+                        <span id="cart-total">$0.00</span> <!-- Initial total set to 0 -->
+                    </div>
+
+                    <div class="mt-4">
+                        <button id="proceed-checkout" class="bg-yellow-500 text-white py-2 px-6 rounded shadow hover:bg-yellow-600 transition">
+                            Proceed to Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Uruyange Coffee. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to get URL query parameter by name
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Function to remove cart items
+        function removeItem(element) {
+            const item = element.closest('.cart-item');
+            item.remove();
+            updateCartTotal();
+        }
+
+        // Function to update the total price of the cart
+        function updateCartTotal() {
+            const cartItems = document.querySelectorAll('.cart-item');
+            let total = 0;
+
+            cartItems.forEach(item => {
+                const price = parseFloat(item.getAttribute('data-price') || 0); // Get price from data attribute
+                total += price;
+            });
+
+            document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Checkout button functionality
+        document.getElementById('proceed-checkout').addEventListener('click', () => {
+            const totalPrice = document.getElementById('cart-total').textContent.replace('$', ''); // Get current total price
+            // Redirect to payment page with price passed as URL parameter
+            window.location.href = `payment.html?price=${totalPrice}`;  // Ensure "payment.html" is the correct path
+        });
+
+        // On page load, get the selected price and update the cart
+        window.addEventListener('DOMContentLoaded', () => {
+            const plan = getQueryParam('plan');  // Get selected plan from the URL
+            const price = getQueryParam('price');  // Get selected price from the URL
+
+            if (plan && price) {
+                // Dynamically add the selected plan and price to the cart
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item', 'flex', 'justify-between', 'items-center');
+                cartItem.setAttribute('data-price', price);
+
+                // Build the content for the cart item
+                cartItem.innerHTML = `
+                    <div>
+                        <span class="font-semibold">Selected Plan:</span> <span>${plan.charAt(0).toUpperCase() + plan.slice(1).replace('-', ' ')}</span><br>
+                        <span class="font-semibold">Price:</span> $${price}<br>
+                    </div>
+                    <div>
+                        <span class="remove-item" onclick="removeItem(this)">Remove</span>
+                    </div>
+                `;
+
+                // Append the new cart item to the cart items container
+                document.getElementById('cart-items').appendChild(cartItem);
+
+                // Update the cart total
+                updateCartTotal();
+            }
+        });
+    </script>
+</body>
+
+</html>

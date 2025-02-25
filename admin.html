@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #f4f4f4;
+        }
+        .dashboard {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background: #021b38;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            margin: 10px 0;
+            background: #021b38;
+            text-align: center;
+            cursor: pointer;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .cards {
+            display: flex;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        #darkModeToggle {
+            background: #021b38;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+        #darkModeToggle:hover {
+            background: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+           <li> <a href="admin.html"> <h2>Dashboard</h2></a></li> 
+            <ul>
+                <li><a href="overview.html">Overview</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="Setting.html">Settings</a></li>
+                <li> <a href="posting.html">Posting</a></li>
+                <li><a href="orders.html">Orders</a></li>
+            </ul>
+            <button id="darkModeToggle">Toggle Dark Mode</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            <section id="overview">
+                <h2>Overview</h2>
+                <div class="cards">
+                    <div class="card">Total Users: <span id="userCount">100</span></div>
+                    <div class="card">Revenue: <span id="revenue">$5,000</span></div>
+                    <div class="card">New Signups: <span id="signups">20</span></div>
+                </div>
+                <canvas id="chart"></canvas>
+            </section>
+
+            <section id="users">
+                <h2>User Management</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTable">
+                        <!-- Dynamic user rows -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

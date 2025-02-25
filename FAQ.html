@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Uruyange Coffee - Support</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            position: relative;
+            background-image: url('images/coffee.jpg'); /* Replace with your banner image */
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .faq-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .faq-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .faq-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .faq-section li {
+            margin: 10px 0;
+        }
+
+        .faq-section a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .faq-section a:hover {
+            text-decoration: underline;
+        }
+
+        .articles-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .article-card {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 22%;
+            min-width: 200px;
+        }
+
+        .article-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .article-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .article-card li {
+            margin: 10px 0;
+        }
+
+        .article-card a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .article-card a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #360404;
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Uruyange Coffee</h1>
+        <p>Freshly roasted coffee delivered to your door. Let's talk coffee!</p>
+    </header>
+
+    <div class="container">
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h3>FAQ</h3>
+            <ul>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Manage my subscription</a></li>
+                <li><a href="#">How do I pick the right roast for me? ☕️</a></li>
+                <li><a href="#">Track order</a></li>
+                <li><a href="#">Report issue</a></li>
+                <li><a href="#">Get more information</a></li>
+            </ul>
+        </section>
+
+        <!-- Articles Section -->
+        <section>
+            <h2>Articles</h2>
+            <div class="articles-container">
+                <div class="article-card">
+                    <h3>ABOUT OUR COFFEE</h3>
+                    <ul>
+                        <li><a href="#">5 Articles</a></li>
+                    </ul>
+                </div>
+
+                <div class="article-card">
+                    <h3>MANAGING YOUR ACCOUNT</h3>
+                    <ul>
+                        <li><a href="#">3 Articles</a></li>
+                    </ul>
+                </div>
+
+                <div class="article-card">
+                    <h3>SUBSCRIPTIONS</h3>
+                    <ul>
+                        <li><a href="#">2 Articles</a></li>
+                    </ul>
+                </div>
+
+                <div class="article-card">
+                    <h3>GIFTS</h3>
+                    <ul>
+                        <li><a href="#">7 Articles</a></li>
+                    </ul>
+                </div>
+
+                <div class="article-card">
+                    <h3>RECEIVED A GIFT</h3>
+                    <ul>
+                        <li><a href="#">1 Article</a></li>
+                    </ul>
+                </div>
+
+                <div class="article-card">
+                    <h3>PAYMENT</h3>
+                    <ul>
+                        <li><a href="#">4 Articles</a></li>
+                    </ul>
+                </div>
+
+                <div class="article-card">
+                    <h3>SHIPPING</h3>
+                    <ul>
+                        <li><a href="#"> 3 Articles</a></li>
+                    </ul>
+                </div>
+
+                <div class="article-card">
+                    <h3>ATLAS REWARDS PROGRAM</h3>
+                    <ul>
+                        <li><a href="#">2 Articles</a></li>
+                    </ul>
+                </div>
+
+                <div class="article-card">
+                    <h3>BREWING AT HOME</h3>
+                    <ul>
+                        <li><a href="#">2 Article</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="contact-info">
+            <p>Still have questions? Shoot us an email - Our Coffee Tour Guides are here to help!</p>
+            <p>Call us: 0783227490</p>
+            <p>Our hours: Monday - Friday, 9 AM - 5 PM CST</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Uruyange Coffee - All rights reserved.</p>
+    </footer>
+</body>
+</html>

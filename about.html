@@ -1,0 +1,655 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Uruyange Coffee</title>
+    <!-- External CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- External JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"></script>
+    <!-- Custom CSS -->
+    <style>
+        /* Base Styles */
+        body {
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #020202 27%, #3E3E3E 57%, #686868 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 1);
+    padding: 8px 20px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a i {
+    font-size: 18px;
+}
+
+.nav-links ul li a:hover {
+    color: #cfb704;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cart-icon {
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+    color: #cfb704;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #cfb704;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-menu {
+    position: relative;
+}
+
+.dashboard-toggle {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dashboard-toggle:hover {
+    color: #cfb704;
+}
+
+.dashboard-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dashboard-menu:hover .dashboard-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dashboard-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color: #333;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-dropdown a:hover {
+    background-color: #f5f5f5;
+    color: #cfb704;
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #cfb704;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #a38402;
+    transform: translateY(-2px);
+}
+.section {
+    padding: 4rem 0;
+    margin-top: 80px; /* Add margin to clear the navbar */
+}
+
+/* Increase top padding for video section specifically */
+.video-section {
+    margin-top: 120px; /* Extra space for the video section */
+    padding-top: 2rem;
+}
+
+/* Ensure navbar stays on top */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+        .dashboard-toggle {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px; /* Reduced from 16px */
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .dashboard-toggle:hover {
+            color: #cfb704;
+        }
+
+        .dashboard-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-menu:hover .dashboard-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dashboard-dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            color: #333;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .dashboard-dropdown a:hover {
+            background-color: #f5f5f5;
+            color: #cfb704;
+        }
+
+        /* Button Styles */
+        .btn {
+            font-size: 14px; /* Reduced from 16px */
+            font-weight: 500;
+            padding: 8px 16px; /* Reduced from 10px 20px */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px; /* Reduced from 8px */
+            border: none;
+            min-width: fit-content;
+        }
+
+        .btn-primary {
+            background-color: #cfb704;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background-color: #a38402;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .nav-links ul {
+                gap: 20px;
+            }
+            
+            .nav-buttons {
+                gap: 10px;
+            }
+            
+            .btn {
+                padding: 8px 14px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 20px;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .logo img {
+        width: 100px; 
+        height: auto;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+            .nav-buttons {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .btn {
+                font-size: 13px;
+                padding: 6px 12px;
+            }
+            
+            .dashboard-dropdown {
+                position: static;
+                width: 100%;
+                margin-top: 10px;
+                box-shadow: none;
+                background: rgba(255, 255, 255, 0.1);
+            }
+            
+            .dashboard-dropdown a {
+                color: #fff;
+            }
+            
+            .dashboard-dropdown a:hover {
+                background: rgba(255, 255, 255, 0.1);
+                color: #cfb704;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar {
+                padding: 10px 15px;
+            }
+            
+            .logo img {
+                width: 50px;
+            }
+        }
+
+        .btn {
+    font-size: 14px; /* Keep text readable */
+    font-weight: 500;
+    padding: 8px 12px; /* Reduce padding */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    min-width: auto; /* Remove minimum width restriction */
+    width: auto; /* Ensure it only fits content */
+    max-width: 150px; /* Limit the width */
+    text-align: center; /* Center text */
+}
+
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 6rem;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 4rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo-png.png" alt="Coffee Shop">
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <ul>
+                <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="/ourcoffee.html"><i class="fas fa-coffee"></i> Our Coffee</a></li>
+                <li><a href="/subscription.html"><i class="fas fa-box"></i> Subscription</a></li>
+                <li><a href="/about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="Contact.html"><i class="fas fa-address-book"></i> Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="/cart.html" class="cart-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="dashboard-menu">
+                    <a href="" class="dashboard-toggle">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <div class="dashboard-dropdown">
+                        <a href="#"><i class="fas fa-user"></i> Profile</a>
+                        <a href="/cart.html"><i class="fas fa-history"></i> Order History</a>
+                        <a href="#"><i class="fas fa-heart"></i> Favorites</a>
+                        <a href="/accessibility.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+                <a href="/subscription.html">
+                    <button type="button" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Get Started
+                    </button>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Video Section -->
+<section class="section video-section bg-gray-50">
+    <div class="container">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <div class="rounded-lg shadow-xl overflow-hidden">
+                    <video class="w-full h-[500px] object-cover" autoplay muted loop>
+                        <source src="images/vidvim.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">About Uruyange Coffee</h2>
+                <p class="text-lg text-gray-700 mb-6">We are passionate about bringing you the finest coffee from the heart of Rwanda. Our beans are carefully selected from the pristine hills of the Kivu region, where perfect growing conditions create exceptional flavors.</p>
+                <p class="text-lg text-gray-700 mb-8">Every cup tells a story of dedication, from our skilled farmers to our expert roasters, ensuring you experience coffee at its absolute best.</p>
+                <a href="about.html" class="btn btn-primary">
+                    Learn More About Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="flex items-center h-full">
+                <div class="w-1/2 pr-12">
+                    <h1 class="text-6xl font-bold mb-6 text-gray-900">Uruyange Coffee</h1>
+                    <p class="text-2xl leading-relaxed text-gray-700">Where the Kivu breeze forms exceptional coffee beans, crafted with passion and delivered with excellence.</p>
+                    <div class="mt-8">
+                        <a href="ourcoffee.html" class="btn btn-primary">
+                            Discover Our Coffee
+                        </a>
+                    </div>
+                </div>
+                <div class="w-1/2">
+                    <div class="relative h-[600px] rounded-lg overflow-hidden shadow-xl">
+                        <img src="images/2.3.jpg" alt="Uruyange Coffee" class="object-cover w-full h-full"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-yellow-600 mb-6">Our Story</h2>
+                    <p class="text-gray-600 mb-4">Founded in partnership with Mubuga Coffee, Uruyange Coffee emerged from a profound appreciation for the art of coffee cultivation. Our journey began in the rich soils of Rwanda, specifically from the KIVU showers, where nature crafts some of the world's finest coffee beans.</p>
+                    <p class="text-gray-600">We're more than just coffee suppliers—we're custodians of quality, offering premium varieties including Anaerobic, Natural, and Fully Washed coffee to meet the sophisticated needs of home brewers, café owners, and specialty coffee roasters alike.</p>
+                </div>
+                <div class="relative h-[400px] rounded-lg overflow-hidden">
+                    <img src="images/1.8.jpg" alt="Coffee plantation" class="object-cover w-full h-full shadow-xl"/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section bg-gray-50">
+        <div class="container">
+            <h2 class="text-4xl font-bold text-center text-yellow-600 mb-12">Why Choose Uruyange Coffee?</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6">
+                    <div class="text-4xl mb-4 text-yellow-600">✨</div>
+                    <h3 class="font-bold mb-2 text-gray-800">Exceptional Quality</h3>
+                    <p class="text-gray-600">Finest beans, carefully processed to preserve unique taste profiles.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-4xl mb-4 text-yellow-600">🌱</div>
+                    <h3 class="font-bold mb-2 text-gray-800">Sustainability & Ethics</h3>
+                    <p class="text-gray-600">Supporting fair trade and eco-friendly farming practices.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-4xl mb-4 text-yellow-600">🌍</div>
+                    <h3 class="font-bold mb-2 text-gray-800">Worldwide Shipping</h3>
+                    <p class="text-gray-600">Fresh coffee delivered to your doorstep, wherever you are.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-4xl mb-4 text-yellow-600">💝</div>
+                    <h3 class="font-bold mb-2 text-gray-800">Passion for Coffee</h3>
+                    <p class="text-gray-600">Dedicated to providing the best coffee experience.</p>
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <!-- Our Coffee Section -->
+    <section class="section bg-white">
+        <div class="container">
+            <h2 class="text-4xl font-bold text-center text-yellow-600 mb-12">Our Coffee Selection</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-yellow-600 mb-4">Roasted Coffee</h3>
+                    <p class="text-gray-600">Expertly roasted beans that bring out the unique flavor profiles of our premium coffee selections, ready for your perfect brew.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-yellow-600 mb-4">Green Coffee</h3>
+                    <p class="text-gray-600">Raw, carefully selected beans for roasters who prefer to craft their own unique roasting profiles and flavors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+<section class="section bg-gray-900 text-white">
+    <div class="container text-center">
+        <h2 class="text-3xl font-bold mb-4">Join Us on This Coffee Journey</h2>
+        <p class="mb-8 max-w-2xl mx-auto">At Uruyange Coffee, we believe that coffee is more than a beverage—it's an experience. Discover the perfect blend for your taste today.</p>
+        <a href="ourcoffee.html" class="btn btn-primary">Explore Our Collection</a>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4 class="font-bold mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="FAQ.html" class="hover:text-yellow-400">FAQ</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="font-bold mb-4">Connect With Us</h4>
+                    <p class="mb-2">SUPPORT</p>
+                    <a href="tel:+250783227490" class="hover:text-yellow-400">0783227490</a>
+                </div>
+                <div class="footer-section">
+                    <h4 class="font-bold mb-4">Our Location</h4>
+                    <p class="text-sm">We're located in The West End— a historic ururyange neighborhood with a rich history of black entrepreneurs and culture.</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+                <p>© 2025 Uruyange Coffee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Navigation -->
+    <script>
+        // Navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

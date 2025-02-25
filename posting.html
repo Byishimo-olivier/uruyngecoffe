@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posting - Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #f4f4f4;
+        }
+        .dashboard {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background: #021b38;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            margin: 10px 0;
+            background: #021b38;
+            text-align: center;
+            cursor: pointer;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .cards {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 250px;
+        }
+        .card h3 {
+            font-size: 18px;
+            margin: 0;
+            padding-bottom: 10px;
+        }
+        .card p {
+            font-size: 14px;
+            color: #555;
+            margin: 10px 0;
+        }
+        .card input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .card button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .card button:hover {
+            background-color: #45a049;
+        }
+        
+    
+
+.add-coffee-section {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .add-coffee-section h3 {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+    .form-group input[type="file"] {
+        padding: 0;
+    }
+
+    .form-group textarea {
+        resize: vertical;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+        .add-coffee-section button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 80%;
+            margin-top: 10px;
+        }
+
+       
+
+        .add-coffee-section button:hover {
+            background-color: #0056b3;
+        }
+        .gallery {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .coffee-card {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 250px;
+            text-align: center;
+        }
+        .coffee-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="overview.html">Overview</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="posting.html">Posting</a></li>
+                <li><a href="orders.html">Order</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            <h2>Posting</h2>
+            
+            <!-- Add New Coffee Section -->
+<div class="add-coffee-section">
+    <h3>Add New Coffee</h3>
+    <div class="form-group">
+        <label for="new-coffee-name">Coffee Name</label>
+        <input type="text" id="new-coffee-name" placeholder="Enter Coffee Name" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="new-coffee-quantity">Quantity</label>
+        <input type="number" id="new-coffee-quantity" placeholder="Enter Quantity" required>
+    </div>
+
+    <div class="form-group">
+        <label for="new-coffee-description">Description</label>
+        <textarea id="new-coffee-description" placeholder="Enter Coffee Description" rows="4" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="new-coffee-image">Upload Image</label>
+        <input type="file" id="new-coffee-image" accept="image/*" required>
+    </div>
+
+    <button onclick="addNewCoffee()">Add Coffee</button>
+</div>
+
+            <!-- Coffee Cards Gallery -->
+            <section class="gallery" id="coffee-cards">
+                <div class="coffee-card" onclick="redirectToSubscription('Espresso')">
+                    <img src="images/Espresso.jpg" alt="Espresso">
+                    <h3>Espresso</h3>
+                </div>
+                <div class="coffee-card" onclick="redirectToSubscription('Latte')">
+                    <img src="images/Latte.jpg" alt="Latte">
+                    <h3>Latte</h3>
+                </div>
+                <div class="coffee-card" onclick="redirectToSubscription('Cappuccino')">
+                    <img src="images/Cappuccino.jpg" alt="Cappuccino">
+                    <h3>Cappuccino</h3>
+                </div>
+                <div class="coffee-card" onclick="redirectToSubscription('Americano')">
+                    <img src="images/Americano.jpg" alt="Americano">
+                    <h3>Americano</h3>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function redirectToSubscription(coffeeType) {
+            window.location.href = 'subscription.html?coffee=' + coffeeType;
+        }
+
+        function addNewCoffee() {
+            const coffeeName = document.getElementById('new-coffee-name').value;
+            const coffeeQuantity = document.getElementById('new-coffee-quantity').value;
+            const coffeeDescription = document.getElementById('new-coffee-description').value;
+            const coffeeImage = document.getElementById('new-coffee-image').files[0];
+            
+            if (coffeeName && coffeeQuantity && coffeeDescription && coffeeImage) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Create new coffee card dynamically
+                    const coffeeCardsContainer = document.getElementById('coffee-cards');
+                    const newCard = document.createElement('div');
+                    newCard.classList.add('coffee-card');
+                    newCard.innerHTML = `
+                        <img src="${e.target.result}" alt="${coffeeName}" style="width: 100%; height: auto; border-radius: 5px; margin-bottom: 10px;">
+                        <h3>${coffeeName}</h3>
+                        <p class="coffee-description">${coffeeDescription}</p>
+                        <input type="text" placeholder="Enter quantity" id="${coffeeName.toLowerCase()}-quantity">
+                        <button onclick="redirectToSubscription('${coffeeName}')">Subscribe</button>
+                    `;
+                    coffeeCardsContainer.appendChild(newCard);
+
+                    // Clear the input fields
+                    document.getElementById('new-coffee-name').value = '';
+                    document.getElementById('new-coffee-quantity').value = '';
+                    document.getElementById('new-coffee-description').value = '';
+                    document.getElementById('new-coffee-image').value = '';
+                };
+                reader.readAsDataURL(coffeeImage); // Read the image file
+            } else {
+                alert('Please enter coffee name, quantity, description, and image!');
+            }
+        }
+    </script>
+</body>
+</html>

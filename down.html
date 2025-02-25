@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Example</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6 bg-gray-50">
+
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-2xl font-bold mb-6">Select Number of Bags Per Shipment</h3>
+
+    <!-- Grid Container -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+      <!-- Double Bag -->
+      <label class="p-4 bg-white rounded-lg shadow-lg border-2 border-yellow-400 relative">
+        <div class="absolute top-0 left-0 bg-blue-400 text-white px-3 py-1 text-sm rounded-full">Most Popular</div>
+        <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1">On Sale Now</div>
+        <img src="https://via.placeholder.com/150" alt="Double Bag" class="mx-auto mb-4">
+        <input type="radio" name="bags" value="2" class="hidden">
+        <span class="block font-bold text-lg">Double Bag</span>
+        <p class="text-sm text-gray-500">24oz or ~60 cups</p>
+        <div class="mt-2">
+          <span class="line-through text-gray-400">$32</span>
+          <span class="text-red-500 text-xl font-bold">$16</span>
+        </div>
+        <p class="text-green-600 font-semibold mt-2">Get a Free Bag</p>
+        <p class="text-gray-500">+ Always Save 27%</p>
+      </label>
+
+      <!-- Single Bag -->
+      <label class="p-4 bg-white rounded-lg shadow-lg relative">
+        <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1">On Sale Now</div>
+        <img src="https://via.placeholder.com/150" alt="Single Bag" class="mx-auto mb-4">
+        <input type="radio" name="bags" value="1" class="hidden">
+        <span class="block font-bold text-lg">Single Bag</span>
+        <p class="text-sm text-gray-500">12oz or ~30 cups</p>
+        <div class="mt-2">
+          <span class="line-through text-gray-400">$17</span>
+          <span class="text-red-500 text-xl font-bold">$8.5</span>
+        </div>
+        <p class="text-green-600 font-semibold mt-2">Get 50% Off</p>
+        <p class="text-gray-500">+ Always Save 22%</p>
+      </label>
+
+      <!-- Half Bag -->
+      <label class="p-4 bg-white rounded-lg shadow-lg relative">
+        <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1">On Sale Now</div>
+        <img src="https://via.placeholder.com/150" alt="Half Bag" class="mx-auto mb-4">
+        <input type="radio" name="bags" value="0.5" class="hidden">
+        <span class="block font-bold text-lg">Half Bag</span>
+        <p class="text-sm text-gray-500">6oz or ~15 cups</p>
+        <div class="mt-2">
+          <span class="line-through text-gray-400">$11</span>
+          <span class="text-red-500 text-xl font-bold">$5.5</span>
+        </div>
+        <p class="text-green-600 font-semibold mt-2">Get 50% Off</p>
+        <p class="text-gray-500">+ Always Save 15%</p>
+      </label>
+
+      <!-- Three Bags -->
+      <label class="p-4 bg-white rounded-lg shadow-lg relative">
+        <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1">On Sale Now</div>
+        <img src="https://via.placeholder.com/150" alt="Three Bags" class="mx-auto mb-4">
+        <input type="radio" name="bags" value="3" class="hidden">
+        <span class="block font-bold text-lg">Three Bags</span>
+        <p class="text-sm text-gray-500">36oz or ~90 cups</p>
+        <div class="mt-2">
+          <span class="line-through text-gray-400">$45</span>
+          <span class="text-red-500 text-xl font-bold">$22.5</span>
+        </div>
+        <p class="text-gray-500">+ Always Save 30%</p>
+      </label>
+
+      <!-- Four Bags -->
+      <label class="p-4 bg-white rounded-lg shadow-lg relative">
+        <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1">On Sale Now</div>
+        <img src="https://via.placeholder.com/150" alt="Four Bags" class="mx-auto mb-4">
+        <input type="radio" name="bags" value="4" class="hidden">
+        <span class="block font-bold text-lg">Four Bags</span>
+        <p class="text-sm text-gray-500">48oz or ~120 cups</p>
+        <div class="mt-2">
+          <span class="line-through text-gray-400">$57</span>
+          <span class="text-red-500 text-xl font-bold">$28.5</span>
+        </div>
+        <p class="text-gray-500">+ Always Save 35%</p>
+      </label>
+    </div>
+
+    <!-- Dropdown for 'Need Less?' -->
+    <div class="mt-6 text-center">
+      <button id="needLessBtn" class="text-blue-500 underline focus:outline-none">Need Less?</button>
+      <div id="dropdown" class="hidden mt-4 bg-white border border-gray-200 shadow-lg rounded-md p-4">
+        <label class="block mb-4">
+          <input type="radio" name="bags" value="0.25" class="mr-2">
+          Quarter Bag (6 cups)
+        </label>
+        <label class="block mb-4">
+          <input type="radio" name="bags" value="0.125" class="mr-2">
+          Eighth Bag (3 cups)
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('needLessBtn').addEventListener('click', function () {
+      const dropdown = document.getElementById('dropdown');
+      dropdown.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

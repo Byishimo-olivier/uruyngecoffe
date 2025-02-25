@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Uruyange Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"></script>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Navbar */
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #020202 27%, #3E3E3E 57%, #686868 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 1);
+    padding: 8px 20px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a i {
+    font-size: 18px;
+}
+
+.nav-links ul li a:hover {
+    color: #cfb704;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cart-icon {
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+    color: #cfb704;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #cfb704;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-menu {
+    position: relative;
+}
+
+.dashboard-toggle {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dashboard-toggle:hover {
+    color: #cfb704;
+}
+
+.dashboard-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dashboard-menu:hover .dashboard-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dashboard-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color: #333;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-dropdown a:hover {
+    background-color: #f5f5f5;
+    color: #cfb704;
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #cfb704;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #a38402;
+    transform: translateY(-2px);
+}
+
+        /* Contact Form Section */
+        .contact-section {
+            background-image: url("images/landing\ page.png");
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            margin-top: 120px;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            width: 100%;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info .social-icons {
+            margin-top: 1rem;
+        }
+
+        .contact-info .social-icons a {
+            font-size: 1.5rem;
+            color: #333;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .contact-info .social-icons a:hover {
+            color: #ffcc00;
+        }
+
+        .form-container {
+            flex: 2;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #333;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #ffcc00;
+        }
+
+        .form-message {
+            text-align: center;
+            font-size: 1.1rem;
+            color: green;
+            margin-top: 1.5rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-info,
+            .form-container {
+                width: 100%;
+                padding: 1.5rem;
+            }
+        }
+
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #020202 27%, #3E3E3E 57%, #686868 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 1);
+    padding: 8px 20px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a i {
+    font-size: 18px;
+}
+
+.nav-links ul li a:hover {
+    color: #cfb704;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cart-icon {
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+    color: #cfb704;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #cfb704;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-menu {
+    position: relative;
+}
+
+.dashboard-toggle {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dashboard-toggle:hover {
+    color: #cfb704;
+}
+
+.dashboard-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dashboard-menu:hover .dashboard-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dashboard-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color: #333;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-dropdown a:hover {
+    background-color: #f5f5f5;
+    color: #cfb704;
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #cfb704;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #a38402;
+    transform: translateY(-2px);
+}
+
+
+@media screen and (max-width: 1024px) {
+    .nav-links ul {
+        gap: 20px;
+    }
+    
+    .nav-buttons {
+        gap: 15px;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 20px;
+        transition: left 0.3s ease;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .nav-buttons {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .dashboard-dropdown {
+        position: static;
+        width: 100%;
+        margin-top: 10px;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .dashboard-dropdown a {
+        color: #fff;
+    }
+    
+    .dashboard-dropdown a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #cfb704;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .men_text h1 {
+        font-size: 40px;
+    }
+    
+    .men_text h2 {
+        font-size: 24px;
+    }
+    
+    .navbar {
+        padding: 10px 15px;
+    }
+    
+    .logo img {
+        width: 100px; 
+        height: auto;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+}
+
+
+       
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo-png.png" alt="Coffee Shop">
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links" id="navLinks">
+
+                <ul>
+                    <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="/ourcoffee.html"><i class="fas fa-coffee"></i> Our Coffee</a></li>
+                    <li><a href="/subscription.html"><i class="fas fa-box"></i> Subscription</a></li>
+                    <li><a href="/about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="Contact.html"><i class="fas fa-address-book"></i> Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="/cart.html" class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <div class="dashboard-menu">
+                        <a href="" class="dashboard-toggle">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <div class="dashboard-dropdown">
+                            <a href="#"><i class="fas fa-user"></i> Profile</a>
+                            <a href="/cart.html"><i class="fas fa-history"></i> Order History</a>
+                            <a href="#"><i class="fas fa-heart"></i> Favorites</a>
+                            <a href="/accessibility.html"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                    <a href="/subscription.html">
+                    <button type="button" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Get Started
+                    </button>
+                </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <!-- Contact Information on the Right -->
+            <div class="contact-info">
+                <h3>Contact Info</h3>
+                <p>Location: Kigali, Rwanda</p>
+                <p>Email: <a href="mailto:info@uruyangecoffee.com">info@uruyangecoffee.com</a></p>
+                <p>Call us: <a href="tel:+250783227490">+250 783 227 490</a></p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- Contact Form on the Left -->
+            <div class="form-container">
+                <h2>Contact Us</h2>
+                <form id="contact-form" action="submit_form.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </div>
+                </form>
+                <div id="form-message" class="form-message"></div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+     <footer style="background-color: #333; color: #fff; padding: 40px 20px;">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+            <!-- Customer Service Section -->
+            <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+                <h4 style="font-weight: bold;">Customer Service</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="FAQ.html" style="color: #fff; text-decoration: none;">FAQ</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Refund Policy</a></li>
+                    <li><a href="PrivacyCondition.html" style="color: #fff; text-decoration: none;">Privacy Policy</a></li>
+                    <li><a href="term&condintion.html" style="color: #fff; text-decoration: none;">Terms of Service</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Wholesale</a></li>
+                </ul>
+            </div>
+    
+            <!-- Learn Section -->
+            <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+                <h4 style="font-weight: bold;">Learn</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: #fff; text-decoration: none;">About Us</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Careers</a></li>
+                    <li><a href="/Contact.html" style="color: #fff; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Blog</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Press</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Give $5, Get $5</a></li>
+                </ul>
+            </div>
+    
+            <!-- Contact Section -->
+            <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+                <h4 style="font-weight: bold;">CONTACT WITH US</h4>
+                <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <a href="#" style="color: #fff;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: #fff;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: #fff;"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p style="margin: 0;">SUPPORT</p>
+                <a href="tel:+250783227490" style="color: inherit; text-decoration: none;">0783227490</a>
+            </div>
+        </div>
+    
+        <!-- Footer Bottom Section -->
+        <div style="margin-top: 20px; text-align: center;">
+            <p style="margin: 0;">We're located in The West End— a historic MMM </br> neighborhood with a rich history of black entrepreneurs </br> and culture. We're honored to have you as a partner </br> in this journey to revitalize black and brown entrepreneurship.</p>
+        </div>
+    
+        <hr style="margin: 20px 0; border-color: #555;">
+    
+        <!-- Footer Links -->
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+            <div style="flex: 1; text-align: left; row-gap: 20px;">
+                <a href="term&condintion.html" style="color: #fff; text-decoration: none; margin-right: 10px;">Terms & Conditions</a>
+                <a href="PrivacyCondition.html" style="color: #fff; text-decoration: none; margin-right: 10px;">Privacy Policy</a>
+                <a href="do not sell my infos.html" style="color: #fff; text-decoration: none; margin-right: 10px;">Do Not Sell My Info</a>
+                <a href="accessibility.html" style="color: #fff; text-decoration: none;">Accessibility</a>
+            </div>
+            <div style="flex: 1; text-align: right;">
+                <p style="margin: 0;">© 2025 Uruyange Coffee</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            document.getElementById('form-message').textContent = 'Thank you for reaching out. We will get back to you soon.';
+        });
+    </script>
+</body>
+</html>

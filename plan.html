@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Plans - Uruyange Coffee </title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"></script>
+    <style>
+        .hero-bg {
+            background-image: url('images/me5.webp'); 
+            background-size: cover;
+            background-position: center;
+        }
+        .option-card {
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+            cursor: pointer;
+            border-radius: 10px;
+            height:fit-content;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            color: #000;
+        }
+        .option-card:hover, .option-card.selected {
+            border-color: #F59E0B; 
+        }
+        .option-card input[type="radio"] {
+            display: none;
+        }
+        .option-card input[type="radio"]:checked + img {
+            border: 2px solid #F59E0B;
+        }   
+
+        .option-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+       
+
+
+        .py-16 {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 2rem;
+            background-color: #D0C57B;
+        }
+        .mb-12{
+            background-color: #fff;
+            border-radius: 20px;
+            height: 350px;
+            width: 70%;
+            margin: auto;
+            margin-top: auto;
+            margin-bottom: 30px;
+        }
+        .mt-10 {
+    background-color: #FFFEFC;
+    border-radius: 20px;
+    height: 350px;
+    width: 50%;
+    margin: auto;
+    margin-top: auto;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333;
+}
+
+.mt-10 p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.mt-10 button {
+    background-color: #F59E0B;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px;
+    margin-top: 20px;
+}
+
+.mt-10 button:hover {
+    background-color: #926008;
+}
+
+.mt-10 button:active {
+    background-color: #F59E0B;
+}
+
+.mt-10 button:focus {
+    background-color: #F59E0B;
+}
+
+.mb-12 #dropdown {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.mb-12 label[for="needMoreBtn"] {
+    position: relative;
+    display: block;
+    margin-top: 1rem;
+}
+
+#needMoreBtn {
+    display: block;
+    margin: 0 auto;
+   
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#dropdown.hidden {
+    display: none;
+}
+/* General styling for sections */
+.mb-12 {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Style the heading */
+h3 {
+    font-size: 1.75rem; /* Equivalent to text-2xl */
+    font-weight: bold;
+    margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+}
+
+/* Grid container */
+.grid {
+    display: flex;
+    justify-content: center; /* Centers the items horizontally */
+    flex-wrap: wrap; /* Ensures items wrap properly on smaller screens */
+    gap: 2rem; /* Equivalent to gap-6 */
+}
+
+.option-card {
+    width: 180px;
+    height: 260px;
+  padding: 20px; /* Increase padding */
+  border-radius: 12px; /* Smooth corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.option-card:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.option-card img {
+  max-width: 120px; /* Increase image size */
+}
+
+.option-card .absolute {
+  font-size: 1rem; /* Increase label size */
+  padding: 6px 12px;
+}
+
+.text-xl {
+  font-size: 1.75rem; /* Increase price text size */
+}
+
+
+@media screen and (max-width: 1024px) {
+            .nav-links ul {
+                gap: 20px;
+            }
+
+            .nav-buttons {
+                gap: 15px;
+            }
+
+            .btn {
+                padding: 8px 16px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .nav-toggle {
+                display: block;
+                cursor: pointer;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 20px;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+
+            .dashboard-dropdown {
+                position: static;
+                width: 100%;
+                margin-top: 10px;
+                box-shadow: none;
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .dashboard-dropdown a {
+                color: #fff;
+            }
+
+            .dashboard-dropdown a:hover {
+                background: rgba(255, 255, 255, 0.1);
+                color: #cfb704;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .men_text h1 {
+                font-size: 40px;
+            }
+
+            .men_text h2 {
+                font-size: 24px;
+            }
+
+            .navbar {
+                padding: 10px 15px;
+            }
+
+            .logo img {
+                width: 50px;
+            }
+        }
+
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #020202 27%, #3E3E3E 57%, #686868 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 1);
+    padding: 8px 20px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a i {
+    font-size: 18px;
+}
+
+.nav-links ul li a:hover {
+    color: #cfb704;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cart-icon {
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+    color: #cfb704;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #cfb704;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-menu {
+    position: relative;
+}
+
+.dashboard-toggle {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dashboard-toggle:hover {
+    color: #cfb704;
+}
+
+.dashboard-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dashboard-menu:hover .dashboard-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dashboard-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color: #333;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-dropdown a:hover {
+    background-color: #f5f5f5;
+    color: #cfb704;
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #cfb704;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #a38402;
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+    <section id="Home">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo-png.png" alt="Coffee Shop">
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <ul>
+                    <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="/ourcoffee.html"><i class="fas fa-coffee"></i> Our Coffee</a></li>
+                    <li><a href="/subscription.html"><i class="fas fa-box"></i> Subscription</a></li>
+                    <li><a href="/about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="Contact.html"><i class="fas fa-address-book"></i> Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="/cart.html" class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <div class="dashboard-menu">
+                        <a href="#" class="dashboard-toggle">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <div class="dashboard-dropdown">
+                            <a href="#"><i class="fas fa-user"></i> Profile</a>
+                            <a href="/cart.html"><i class="fas fa-history"></i> Order History</a>
+                            <a href="#"><i class="fas fa-heart"></i> Favorites</a>
+                            <a href="/accessibility.html"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                    <a href="/subscription.html">
+                        <button type="button" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i> Get Started
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        </div>
+    
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-96 flex items-center justify-center text-white text-center">
+        <div class="bg-opacity-50 p-10 rounded">
+            <h1 class="text-5xl font-bold mb-4">Choose Your Coffee Adventure</h1>
+            <p class="mb-6 text-lg">Find your perfect coffee plan and explore the world's finest beans.</p>
+        </div>
+    </section>
+
+    <!-- Subscription Plans Section -->
+    <section id="plans" class="py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-10">Subscription Plans</h2>
+            
+            <!-- Step 1: Select Coffee Type -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6">Select Your Coffee Type Preference</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
+                    <label class="option-card p-4 rounded-lg shadow text-center">
+                        <input type="radio" name="coffeeType" value="Ground">
+                        <img src="images/C.webp" alt="Ground Coffee" class="mx-auto mb-4">
+                        <span class="block font-bold">Ground</span>
+                    </label>
+                    <label class="option-card p-4 rounded-lg shadow text-center">
+                        <input type="radio" name="coffeeType" value="Whole Bean">
+                        <img src="images/D.webp" alt="Whole Bean" class="mx-auto mb-4">
+                        <span class="block font-bold">Whole Bean</span>
+                    </label>
+                    
+                </div>
+            </div>
+
+           
+            <!-- Step 3: Select Roast Preference -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6">Select Your Roast Preference</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
+                    <label class="option-card p-4 rounded-lg shadow text-center">
+                        <input type="radio" name="roastPreference" value="Light">
+                        <img src="images/N.webp" alt="Light Roast" class="mx-auto mb-4">
+                        <span class="block font-bold">Light</span>
+                    </label>
+                    <label class="option-card p-4 rounded-lg shadow text-center">
+                        <input type="radio" name="roastPreference" value="Medium">
+                        <img src="images/O.webp" alt="Medium Roast" class="mx-auto mb-4">
+                        <span class="block font-bold">Medium</span>
+                    </label>
+                    <label class="option-card p-4 rounded-lg shadow text-center">
+                        <input type="radio" name="roastPreference" value="Dark">
+                        <img src="images/P.webp" alt="Dark Roast" class="mx-auto mb-4">
+                        <span class="block font-bold">Dark</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Step 4: Select Number of Bags -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6">Select Number of Bags Per Shipment</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                  <!-- Double Bag -->
+                  <label class="option-card p-4 rounded-lg shadow border-2 border-yellow-400 relative">
+                    <div class="absolute top-0 left-0 bg-blue-400 text-white px-3 py-1 text-sm rounded-full">Most Popular</div>
+                    <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1">On Sale Now</div>
+                    <img src="images/R.webp" alt="Double Bag" class="mx-auto mb-4">
+                    <input type="radio" name="bags" value="2" class="hidden">
+                    <span class="block font-bold text-lg">Double Bag</span>
+                    <p class="text-sm text-gray-500">24oz or ~60 cups</p>
+                    <div class="mt-2">
+                      <span class="line-through text-gray-400">$32</span>
+                      <span class="text-red-500 text-xl font-bold">$16</span>
+                    </div>
+                    <p class="text-green-600 font-semibold mt-2">Get a Free Bag</p>
+                    <p class="text-gray-500">+ Always Save 27%</p>
+                  </label>
+              
+                  <!-- Single Bag -->
+                  <label class="option-card p-4 rounded-lg shadow relative">
+                    <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1">On Sale Now</div>
+                    <img src="images/S.webp" alt="Single Bag" class="mx-auto mb-4">
+                    <input type="radio" name="bags" value="1" class="hidden">
+                    <span class="block font-bold text-lg">Single Bag</span>
+                    <p class="text-sm text-gray-500">12oz or ~30 cups</p>
+                    <div class="mt-2">
+                      <span class="line-through text-gray-400">$17</span>
+                      <span class="text-red-500 text-xl font-bold">$8.5</span>
+                    </div>
+                    <p class="text-green-600 font-semibold mt-2">Get 50% Off</p>
+                    <p class="text-gray-500">+ Always Save 22%</p>
+                  </label>
+              
+                  <!-- Half Bag -->
+                  <label class="option-card p-4 rounded-lg shadow relative">
+                    <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1">On Sale Now</div>
+                    <img src="images/S.webp" alt="Half Bag" class="mx-auto mb-4">
+                    <input type="radio" name="bags" value="0.5" class="hidden">
+                    <span class="block font-bold text-lg">Half Bag</span>
+                    <p class="text-sm text-gray-500">6oz or ~15 cups</p>
+                    <div class="mt-2">
+                      <span class="line-through text-gray-400">$11</span>
+                      <span class="text-red-500 text-xl font-bold">$5.5</span>
+                    </div>
+                    <p class="text-green-600 font-semibold mt-2">Get 50% Off</p>
+                    <p class="text-gray-500">+ Always Save 15%</p>
+                  </label>
+                </div>
+                <label class="mt-12 text-center">
+                  <button id="needMoreBtn" class="text-blue-500 underline focus:outline-none">Need MORE?</button>
+                  <div id="dropdown" class="hidden mt-2 bg-white border border-gray-200 shadow-lg rounded-md p-4 text-left">
+                   
+                  <label class="option-card p-4 rounded-lg shadow relative">
+                    <div class="absolute top-0 right-0 bg-yellow-200 text-xs font-bold px-1 py-1">On Sale Now</div>
+                    <img src="images/S.webp" alt="Half Bag" class="mx-auto mb-4">
+                    <input type="radio" name="bags" value="5" class="hidden">
+                    <span class="block font-bold text-lg">5 Bag</span>
+                    <p class="text-sm text-gray-500">6oz or ~15 cups</p>
+                    <div class="mt-2">
+                      <span class="line-through text-gray-400">$32</span>
+                      <span class="text-red-500 text-xl font-bold">$16</span>
+                    </div>
+                    <p class="text-green-600 font-semibold mt-2">Get 50% Off</p>
+                    <p class="text-gray-500">+ Always Save 15%</p>
+                  </label>
+                     <!-- Half Bag -->
+                  <label class="option-card p-4 rounded-lg shadow relative">
+                    <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1">On Sale Now</div>
+                    <img src="images/S.webp" alt="Half Bag" class="mx-auto mb-4">
+                    <input type="radio" name="bags" value="0.5" class="hidden">
+                    <span class="block font-bold text-lg">10 Bag</span>
+                    <p class="text-sm text-gray-500">6oz or ~15 cups</p>
+                    <div class="mt-2">
+                      <span class="line-through text-gray-400">$80</span>
+                      <span class="text-red-500 text-xl font-bold">$40</span>
+                    </div>
+                    <p class="text-green-600 font-semibold mt-2">Get 50% Off</p>
+                    <p class="text-gray-500">+ Always Save 15%</p>
+                  </label>
+                     
+                  <label class="option-card p-4 rounded-lg shadow relative">
+                    <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1">On Sale Now</div>
+                    <img src="images/S.webp" alt="Half Bag" class="mx-auto mb-4">
+                    <input type="radio" name="bags" value="0.5" class="hidden">
+                    <span class="block font-bold text-lg">20 Bag</span>
+                    <p class="text-sm text-gray-500">6oz or ~15 cups</p>
+                    <div class="mt-2">
+                      <span class="line-through text-gray-400">$100</span>
+                      <span class="text-red-500 text-xl font-bold">$50</span>
+                    </div>
+                    <p class="text-green-600 font-semibold mt-2">Get 50% Off</p>
+                    <p class="text-gray-500">+ Always Save 15%</p>
+                  </label>
+                  </div>
+                </label>
+              </div>
+              
+
+            <!-- Step 5: Select Frequency -->
+            <div class="mt-10 p-6 bg-gray-100 rounded-lg shadow">
+                <h3 class="text-2xl font-bold mb-6">Select How Often You'll Receive It</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
+                    <label class="option-card p-4 rounded-lg shadow text-center">
+                        <input type="radio" name="frequency" value="Weekly">
+                        <span class="block font-bold text-xl">Weekly</span>
+                    </label>
+                    <label class="option-card p-4 rounded-lg shadow text-center">
+                        <input type="radio" name="frequency" value="Bi-Weekly">
+                        <span class="block font-bold text-xl">Bi-Weekly</span>
+                    </label>
+                    <label class="option-card p-4 rounded-lg shadow text-center">
+                        <input type="radio" name="frequency" value="Monthly">
+                        <span class="block font-bold text-xl">Monthly</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+            <!-- Summary Section -->
+            <div id="summary" class="mt-10 p-6 bg-gray-100 rounded-lg shadow">
+                <h3 class="text-2xl font-bold mb-4">Your Selection Summary</h3>
+                <p id="summary-coffeeType" class="text-lg">Coffee Type: <span class="font-bold">Not Selected</span></p>
+                <p id="summary-roastPreference" class="text-lg">Roast Preference: <span class="font-bold">Not Selected</span></p>
+                <p id="summary-bags" class="text-lg">Number of Bags: <span class="font-bold">Not Selected</span></p>
+                <p id="summary-frequency" class="text-lg">Frequency: <span class="font-bold">Not Selected</span></p>
+
+                <button id="checkout-button" class="mt-6 bg-yellow-500 text-white py-2 px-6 rounded shadow hover:bg-yellow-600 transition">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </section>
+</section>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Uruyange Coffee . All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('needMoreBtn').addEventListener('click', function () {
+    const dropdown = document.getElementById('dropdown');
+    dropdown.classList.toggle('hidden');
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const updateSummary = () => {
+        const coffeeType = document.querySelector('input[name="coffeeType"]:checked');
+        const roastPreference = document.querySelector('input[name="roastPreference"]:checked');
+        const bags = document.querySelector('input[name="bags"]:checked');
+        const frequency = document.querySelector('input[name="frequency"]:checked');
+        let price = 0;
+
+        // Get the price based on the number of bags
+        if (bags) {
+            switch (bags.value) {
+                case "0.5":
+                    price = 5.5;
+                    break;
+                case "1":
+                    price = 8.5;
+                    break;
+                case "2":
+                    price = 16;
+                    break;
+                case "5":
+                    price = 16;
+                    break;
+                case "10":
+                    price = 40;
+                    break;
+                case "20":
+                    price = 50;
+                    break;
+                default:
+                    price = 0;
+            }
+        }
+
+        // Update the summary with the selections
+        document.getElementById("summary-coffeeType").querySelector("span").textContent = coffeeType ? coffeeType.value : "Not Selected";
+        document.getElementById("summary-roastPreference").querySelector("span").textContent = roastPreference ? roastPreference.value : "Not Selected";
+        document.getElementById("summary-bags").querySelector("span").textContent = bags ? `${bags.value} Bag${bags.value > 1 ? 's' : ''}` : "Not Selected";
+        document.getElementById("summary-frequency").querySelector("span").textContent = frequency ? frequency.value : "Not Selected";
+
+        // Add a price display element to the summary section if it doesn't exist
+        let priceElement = document.getElementById("summary-price");
+        if (!priceElement) {
+            priceElement = document.createElement("p");
+            priceElement.id = "summary-price";
+            priceElement.className = "text-lg";
+            priceElement.innerHTML = 'Total Price: <span></span>';
+            document.getElementById("summary").appendChild(priceElement);
+        }
+        priceElement.querySelector("span").textContent = `$${price.toFixed(2)}`;
+    };
+
+    // Add event listener to update the summary when a radio button is changed
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.addEventListener("change", updateSummary);
+    });
+
+    // Checkout button functionality
+    document.getElementById('checkout-button').addEventListener('click', () => {
+        const coffeeType = document.querySelector('input[name="coffeeType"]:checked');
+        const roastPreference = document.querySelector('input[name="roastPreference"]:checked');
+        const bags = document.querySelector('input[name="bags"]:checked');
+        const frequency = document.querySelector('input[name="frequency"]:checked');
+
+        if (!coffeeType  || !roastPreference || !bags || !frequency) {
+            alert('Please make selections for all options before proceeding to checkout.');
+            return;
+        }
+
+        const checkoutData = {
+            coffeeType: coffeeType.value,
+            roastPreference: roastPreference.value,
+            bags: bags.value,
+            frequency: frequency.value,
+        };
+
+        localStorage.setItem('checkoutData', JSON.stringify(checkoutData));
+        window.location.href = 'cart.html';
+    });
+});
+
+const navToggle = document.getElementById("navToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        navToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
+
+
+    
+</body>
+</html>
