@@ -87,7 +87,7 @@ section {
     font-size: 18px;
 }
 
-.nav-links ul li a:hover {
+.nav-links ul li a.active {
     color: #cfb704;
 }
 

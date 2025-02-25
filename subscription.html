@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,289 +16,290 @@
         }
 
         .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: linear-gradient(180deg, #020202 27%, #3E3E3E 57%, #686868 100%);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(180deg, #020202 27%, #3E3E3E 57%, #686868 100%);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
 
-.navbar.scrolled {
-    background: rgba(0, 0, 0, 1);
-    padding: 8px 20px;
-}
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 1);
+            padding: 8px 20px;
+        }
 
-.logo img {
-    width: 150px;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
+        .logo img {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
 
-.logo img:hover {
-    transform: scale(1.05);
-}
+        .logo img:hover {
+            transform: scale(1.05);
+        }
 
-.nav-toggle {
-    display: none;
-    font-size: 24px;
-    color: #fff;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
+        .nav-toggle {
+            display: none;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
 
-.nav-links ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
 
-.nav-links ul li a {
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.3s ease;
-}
+        .nav-links ul li a {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
 
-.nav-links ul li a i {
-    font-size: 18px;
-}
+        .nav-links ul li a i {
+            font-size: 18px;
+        }
 
-.nav-links ul li a:hover {
-    color: #cfb704;
-}
+        .nav-links ul li a.active {
+            color: #cfb704;
+        }
 
-.nav-buttons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-.cart-icon {
-    position: relative;
-    color: #fff;
-    font-size: 20px;
-    transition: color 0.3s ease;
-}
+        .cart-icon {
+            position: relative;
+            color: #fff;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
 
-.cart-icon:hover {
-    color: #cfb704;
-}
+        .cart-icon:hover {
+            color: #cfb704;
+        }
 
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: #cfb704;
-    color: #000;
-    font-size: 12px;
-    font-weight: bold;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #cfb704;
+            color: #000;
+            font-size: 12px;
+            font-weight: bold;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.dashboard-menu {
-    position: relative;
-}
+        .dashboard-menu {
+            position: relative;
+        }
 
-.dashboard-toggle {
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
+        .dashboard-toggle {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
 
-.dashboard-toggle:hover {
-    color: #cfb704;
-}
+        .dashboard-toggle:hover {
+            color: #cfb704;
+        }
 
-.dashboard-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    padding: 10px 0;
-    min-width: 200px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-}
+        .dashboard-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
 
-.dashboard-menu:hover .dashboard-dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
+        .dashboard-menu:hover .dashboard-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-.dashboard-dropdown a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
-    color: #333;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
+        .dashboard-dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            color: #333;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
 
-.dashboard-dropdown a:hover {
-    background-color: #f5f5f5;
-    color: #cfb704;
-}
+        .dashboard-dropdown a:hover {
+            background-color: #f5f5f5;
+            color: #cfb704;
+        }
 
-.btn {
-    font-size: 14px;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: none;
-}
+        .btn {
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+        }
 
-.btn-primary {
-    background-color: #cfb704;
-    color: #000;
-}
+        .btn-primary {
+            background-color: #cfb704;
+            color: #000;
+        }
 
-.btn-primary:hover {
-    background-color: #a38402;
-    transform: translateY(-2px);
-}
-
-
-@media screen and (max-width: 1024px) {
-    .nav-links ul {
-        gap: 20px;
-    }
-    
-    .nav-buttons {
-        gap: 15px;
-    }
-    
-    .btn {
-        padding: 8px 16px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-    }
-    
-    .nav-toggle {
-        display: block;
-    }
-    
-    .nav-links {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        padding: 20px;
-        transition: left 0.3s ease;
-    }
-    
-    .nav-links.active {
-        left: 0;
-    }
-    
-    .nav-links ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-    
-    .nav-buttons {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-    }
-    
-    .dashboard-dropdown {
-        position: static;
-        width: 100%;
-        margin-top: 10px;
-        box-shadow: none;
-        background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .dashboard-dropdown a {
-        color: #fff;
-    }
-    
-    .dashboard-dropdown a:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: #cfb704;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .men_text h1 {
-        font-size: 40px;
-    }
-    
-    .men_text h2 {
-        font-size: 24px;
-    }
-    
-    .navbar {
-        padding: 10px 15px;
-    }
-    
-    .logo img {
-        width: 50px;
-    }
-}
+        .btn-primary:hover {
+            background-color: #a38402;
+            transform: translateY(-2px);
+        }
 
 
+        @media screen and (max-width: 1024px) {
+            .nav-links ul {
+                gap: 20px;
+            }
+
+            .nav-buttons {
+                gap: 15px;
+            }
+
+            .btn {
+                padding: 8px 16px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 20px;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+
+            .dashboard-dropdown {
+                position: static;
+                width: 100%;
+                margin-top: 10px;
+                box-shadow: none;
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .dashboard-dropdown a {
+                color: #fff;
+            }
+
+            .dashboard-dropdown a:hover {
+                background: rgba(255, 255, 255, 0.1);
+                color: #cfb704;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .men_text h1 {
+                font-size: 40px;
+            }
+
+            .men_text h2 {
+                font-size: 24px;
+            }
+
+            .navbar {
+                padding: 10px 15px;
+            }
+
+            .logo img {
+                height: 20%;
+                width: 20%;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+        }
     </style>
 </head>
+
 <body class="bg-white text-gray-800">
-   
-    <header class="bg-white shadow fixed w-full z-50">
+
+    <section id="Home">
         <nav class="navbar">
             <div class="logo">
                 <img src="images/logo-png.png" alt="Coffee Shop">
             </div>
-            <a href="">
             <div class="nav-toggle" id="navToggle">
                 <i class="fas fa-bars"></i>
             </div>
-        </a>
             <div class="nav-links" id="navLinks">
-
                 <ul>
                     <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="/ourcoffee.html"><i class="fas fa-coffee"></i> Our Coffee</a></li>
@@ -306,42 +308,34 @@
                     <li><a href="Contact.html"><i class="fas fa-address-book"></i> Contact</a></li>
                 </ul>
                 <div class="nav-buttons">
-                    <a href="/cart.html" class="cart-icon">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span class="cart-count">0</span>
-                    </a>
                     <div class="dashboard-menu">
                         <a href="" class="dashboard-toggle">
-                            <i class="fas fa-user-circle"></i>
+                            <i class="fas fa-dashboard"></i>
                             <span>Dashboard</span>
                         </a>
-                        <div class="dashboard-dropdown">
-                            <a href="#"><i class="fas fa-user"></i> Profile</a>
-                            <a href="/cart.html"><i class="fas fa-history"></i> Order History</a>
-                            <a href="#"><i class="fas fa-heart"></i> Favorites</a>
-                            <a href="/accessibility.html"><i class="fas fa-cog"></i> Settings</a>
-                            <a href="/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                        </div>
                     </div>
                     <a href="/subscription.html">
-                    <button type="button" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> Get Started
-                    </button>
-                </a>
+                        <button type="button" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i> Get Started
+                        </button>
+                    </a>
                 </div>
             </div>
         </nav>
-      </header>
+    </section>
 
     <!-- Hero Section -->
     <section class="hero-bg h-screen flex items-center justify-center text-white text-center">
         <div class="p-10 rounded">
-          <h1 class="text-5xl font-bold mb-4">Discover the World Through Coffee</h1>
-          <p class="mb-6 text-lg">Explore single-origin coffees from the best growers worldwide. Delivered fresh to your door.</p>
-          <a href="plan.html" class="bg-yellow-500 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-yellow-600">Start Your Journey</a>
+            <h1 class="text-5xl font-bold mb-4">Discover the World Through Coffee</h1>
+            <p class="mb-6 text-lg">Explore single-origin coffees from the best growers worldwide. Delivered fresh to
+                your door.</p>
+            <a href="plan.html"
+                class="bg-yellow-500 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-yellow-600">Start Your
+                Journey</a>
         </div>
     </section>
-    
+
 
     <!-- Subscription Plans -->
     <section id="plans" class="py-16">
@@ -353,21 +347,24 @@
                     <img src="images/E.webp" alt="Monthly Plan">
                     <h3 class="text-2xl font-bold mb-4">Monthly Plan</h3>
                     <p class="text-lg text-gray-600 mb-6">$18.99/month</p>
-                    <a href="plan.html?plan=monthly&price=18.99" class="bg-yellow-500 text-white py-2 px-6 rounded shadow hover:bg-yellow-600">Subscribe</a>
+                    <a href="plan.html?plan=monthly&price=18.99"
+                        class="bg-yellow-500 text-white py-2 px-6 rounded shadow hover:bg-yellow-600">Subscribe</a>
                 </div>
                 <!-- 3-Month Plan -->
                 <div class="p-8 bg-white shadow-lg rounded">
                     <img src="images/D.webp" alt="3-Month Plan">
                     <h3 class="text-2xl font-bold mb-4">3-Month Plan</h3>
                     <p class="text-lg text-gray-600 mb-6">$49.99</p>
-                    <a href="plan.html?plan=3-months&price=49.99" class="bg-yellow-500 text-white py-2 px-6 rounded shadow hover:bg-yellow-600">Subscribe</a>
+                    <a href="plan.html?plan=3-months&price=49.99"
+                        class="bg-yellow-500 text-white py-2 px-6 rounded shadow hover:bg-yellow-600">Subscribe</a>
                 </div>
                 <!-- Yearly Plan -->
                 <div class="p-8 bg-white shadow-lg rounded">
                     <img src="images/C.webp" alt="Yearly Plan">
                     <h3 class="text-2xl font-bold mb-4">Yearly Plan</h3>
                     <p class="text-lg text-gray-600 mb-6">$199.99</p>
-                    <a href="plan.html?plan=yearly&price=199.99" class="bg-yellow-500 text-white py-2 px-6 rounded shadow hover:bg-yellow-600">Subscribe</a>
+                    <a href="plan.html?plan=yearly&price=199.99"
+                        class="bg-yellow-500 text-white py-2 px-6 rounded shadow hover:bg-yellow-600">Subscribe</a>
                 </div>
             </div>
         </div>
@@ -379,5 +376,25 @@
             <p>&copy; 2025 Uruyange Coffee. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navToggle = document.getElementById('navToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            navToggle.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+            });
+        });
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const menuItems = document.querySelectorAll('.nav-links ul li a');
+
+        menuItems.forEach(item => {
+            const itemHref = item.getAttribute('href').split('/').pop();
+            if (itemHref === currentPage) {
+                item.classList.add('active');
+            }
+        });
+    </script>
 </body>
+
 </html>
